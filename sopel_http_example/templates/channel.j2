@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<img src="{{ url_for("example.static", filename="octothorpe.png") }}"> <h2>{{ channel }}</h2>
+Users:<br>
+{% for user in users %}
+    <br>
+    {{ user }}
+    <form method="post">
+        <input type="hidden" name="user" value="{{ user }}">
+        <button type="submit">Say hello</button>
+    </form>
+{% endfor %}

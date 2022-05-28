@@ -1,0 +1,36 @@
+
+[tool.poetry]
+name = "sopel-http-example"
+version = "0.1.0"
+description = "An example Sopel plugin making use of sopel-http"
+authors = ["Trevor Bergeron <mal@sec.gd>"]
+license = "EUPL-1.2"
+readme = "README.md"
+homepage = "https://github.com/half-duplex/sopel-http-example"
+keywords = ["irc", "sopel", "example"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Topic :: Communications :: Chat :: Internet Relay Chat",
+    "Development Status :: 4 - Beta",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+sopel = "^7.1.9"
+sopel-http = "^0.1.0"
+Flask = "^2.1.2"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+flake8 = "^4.0.1"
+flake8-future-import = "^0.4.6"
+flake8-import-order = "^0.18.1"
+flake8-type-checking = "^1.5.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."sopel.plugins"]
+http-example = "sopel_http_example"
