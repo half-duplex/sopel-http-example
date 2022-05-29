@@ -41,6 +41,10 @@ def hello():
     return message.replace("\n", "<br>\n")
 
 
+# See https://github.com/half-duplex/sopel-http/issues/1
+hello._sopel_callable = False
+
+
 @app.route("/channel/<channel>")
 def channel(channel):
     if channel not in bot.channels:
@@ -50,6 +54,9 @@ def channel(channel):
         channel=channel,
         users=bot.channels[channel].privileges.keys(),
     )
+
+
+channel._sopel_callable = False
 
 
 @app.route("/channel/<channel>", methods=["POST"])
@@ -63,3 +70,6 @@ def channel_post(channel):
         abort(400, "User not specified")
     bot.say("A web user says hello, " + user + "!", channel)
     return "Sent!"
+
+
+channel_post._sopel_callable = False
